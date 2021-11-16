@@ -7,7 +7,5 @@ export const getCurrencies = async (): Promise<Currency[]> => {
 }
 
 export const getCurrencyByName = async (name: string): Promise<Token> => {
-  return await fetch(`${URL}/tokens?name=${name}`)
-    .then((res) => res.json())
-    .then((list) => list[0])
+  return await fetch(`${URL}/tokens/${name}`).then((res) => res.json())
 }

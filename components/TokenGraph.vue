@@ -1,29 +1,37 @@
 <template>
-  <div class="jumper">
-    <div class="media text-white">
-      <img
-        :src="require(`/assets/img/${token.symbol}.png`)"
-        class="align-self-center mr-3 symbol-image"
-      />
-      <div class="media-body">
-        <h5 class="mt-0">{{ token.price }}</h5>
-        <p>
-          <span>{{ token.price }}</span>
-          <span class="text-uppercase">{{ token.symbol }}</span>
-        </p>
-      </div>
-    </div>
+  <section>
+    <NuxtLink to="/">
+      <img :src="require('/assets/icon/back.png')" /> {{ token.name }}
+    </NuxtLink>
 
-    <trend
-      :data="graph"
-      :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-      auto-draw
-      smooth
-    >
-    </trend>
-    <button class="btn btn-primary" @click="changeRange('1D')">1D</button>
-    <button class="btn btn-primary" @click="changeRange('7D')">7D</button>
-  </div>
+    <br />
+    <br />
+    <div class="jumper">
+      <div class="media text-white">
+        <img
+          :src="require(`/assets/img/${token.symbol}.png`)"
+          class="align-self-center mr-3 symbol-image"
+        />
+        <div class="media-body">
+          <h5 class="mt-0">{{ token.price }}</h5>
+          <p>
+            <span>{{ token.price }}</span>
+            <span class="text-uppercase">{{ token.symbol }}</span>
+          </p>
+        </div>
+      </div>
+
+      <trend :data="graph" :gradient="['#0a84ff']" auto-draw smooth> </trend>
+      <button
+        v-for="item of ranges"
+        :key="item"
+        class="btn btn-primary mr-2"
+        @click="changeRange(item)"
+      >
+        {{ item }}
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -32,6 +40,7 @@ export default {
   data() {
     return {
       range: 'ALL',
+      ranges: ['1D', '7D', '1M', '3M', 'YTD', 'ALL'],
     }
   },
   computed: {

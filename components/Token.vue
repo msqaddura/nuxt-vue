@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid">
     <br />
-    <p v-if="$fetchState.pending">Fetching data...</p>
+    <Spinner v-if="$fetchState.pending"></Spinner>
     <p v-else-if="$fetchState.error">An error occurred :(</p>
     <div v-else>
       <TokenGraph :token="token"></TokenGraph>
