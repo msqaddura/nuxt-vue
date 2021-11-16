@@ -1,10 +1,11 @@
 <template>
   <section class="container-fluid">
+    <br />
     <p v-if="$fetchState.pending">Fetching data...</p>
     <p v-else-if="$fetchState.error">An error occurred :(</p>
     <div v-else>
       <ul class="list-unstyled">
-        <li v-for="item of data" :key="item.name" class="jumper media my-3">
+        <li v-for="item of data" :key="item.name" class="jumper my-3">
           <NuxtLink
             :to="`/${item.name}`"
             class="
@@ -12,13 +13,12 @@
               align-items-center
               justify-content-between
               text-decoration-none
-              w-100
             "
           >
             <div class="media">
               <img
                 :src="require(`/assets/img/${item.symbol}.png`)"
-                class="align-self-center mr-3"
+                class="align-self-center mr-3 symbol-image"
               />
               <div class="media-body">
                 <h5 class="mt-0">{{ item.name }}</h5>
@@ -55,7 +55,7 @@ export default {
 
 <style scoped lang="scss">
 $size: 32px;
-.media img {
+.symbol-image {
   width: $size;
   height: $size;
 }

@@ -1,16 +1,21 @@
 <template>
-  <p v-if="$fetchState.pending">Fetching mountains...</p>
-  <p v-else-if="$fetchState.error">An error occurred :(</p>
-  <div v-else>
-    <img :src="require(`/assets/img/${token.symbol}.png`)" />
-    <trend
-      :data="display"
-      :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-      auto-draw
-      smooth
-    >
-    </trend>
-  </div>
+  <section class="container-fluid">
+    <br />
+    <p v-if="$fetchState.pending">Fetching data...</p>
+    <p v-else-if="$fetchState.error">An error occurred :(</p>
+    <div v-else>
+      <TokenGraph :token="token"></TokenGraph>
+      <br />
+      <h5>Alerts</h5>
+      <br />
+      <TokenAlerts :token="token"></TokenAlerts>
+      <br />
+      <h5>Info</h5>
+      <br />
+      <h5>About</h5>
+      <br />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -19,20 +24,18 @@ export default {
   data() {
     return {
       token: {},
-      display: [],
     }
   },
   async fetch() {
     this.token = await getCurrencyByName(this.$route.params.token)
-    this.changeRange('7D')
-  },
-
-  methods: {
-    changeRange(range) {
-      this.display = this.token.priceHistory[range].priceData.map(
-        (item) => item[1]
-      )
-    },
   },
 }
 </script>
+
+<style scoped lang="scss">
+$size: 44px;
+.symbol-image {
+  width: $size;
+  height: $size;
+}
+</style>
