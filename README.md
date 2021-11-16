@@ -9,6 +9,10 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+# json-server as db at localhost:4000
+$ npm run server
+
+
 # build for production and launch server
 $ npm run build
 $ npm run start
@@ -41,7 +45,6 @@ Layouts are a great help when you want to change the look and feel of your Nuxt 
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
 
-
 ### `pages`
 
 This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
@@ -62,8 +65,6 @@ Example: `/static/robots.txt` is mapped as `/robots.txt`.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
 
-### `store`
+### `core`
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+different Architecture than the usual.
