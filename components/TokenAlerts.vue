@@ -1,34 +1,30 @@
 <template>
-  <section class="container-fluid">
-    <div class="jumper">
-      <div class="media text-white">
+  <div class="jumper">
+    <ul class="list-unstyled">
+      <li v-for="(item, index) in list" :key="index" class="media text-white">
         <img
           :src="require(`/assets/img/${token.symbol}.png`)"
           class="align-self-center mr-3 symbol-image"
         />
         <div class="media-body">
-          <h5 class="mt-0">{{ token.price }}</h5>
+          <h5 class="mt-0">
+            {{ item.targetPriceEur }} <sup class="text-uppercase">EUR</sup>
+          </h5>
           <p>
-            <span>{{ token.price }}</span>
-            <span class="text-uppercase">{{ token.symbol }}</span>
+            <span>({{ item.percentsToChange }} %)</span>
           </p>
         </div>
-      </div>
-    </div>
-  </section>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
   props: ['token'],
-  data() {
-    return {
-      range: 'ALL',
-    }
-  },
   computed: {
     list() {
-      return this.token.alerts[this.range]
+      return this.token.alerts
     },
     rangeToDay() {
       return ''

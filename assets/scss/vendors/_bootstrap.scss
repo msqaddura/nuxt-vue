@@ -1,0 +1,9 @@
+$body-bg: #000;
+$body-color: white;
+$blue: #0a84ff;
+$link-color: white;
+
+// Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap';
+// BootstrapVue and its default variables
+@import '~bootstrap-vue/src/index.scss';

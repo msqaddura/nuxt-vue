@@ -12,8 +12,13 @@
       <br />
       <h5>Info</h5>
       <br />
+      <TokenInfo :token="token"></TokenInfo>
+      <br />
       <h5>About</h5>
       <br />
+      <p class="jumper">
+        {{ token.description }}
+      </p>
     </div>
   </section>
 </template>
