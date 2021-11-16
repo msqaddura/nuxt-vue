@@ -28,8 +28,11 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
+    "fibers": "^5.0.0",
     "http-server": "^14.0.0",
+    "json-server": "*",
     "prettier": "^2.3.2",
-    "json-server": "*"
+    "sass": "^1.43.4",
+    "sass-loader": "^10.2.0"
   }
 }
