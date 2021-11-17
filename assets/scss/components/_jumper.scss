@@ -1,5 +1,6 @@
+@import '../abstract/variables';
 .jumper {
   padding: 1rem;
   border-radius: 0.75rem;
-  background: #20242d;
+  background: $gray-600;
 }
