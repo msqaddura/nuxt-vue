@@ -1,16 +1,19 @@
 <template>
   <div class="jumper">
-    <p>Circulating Supply</p>
-    <p>{{ token.circulatingSupply }}</p>
+    <p class="title">Circulating Supply</p>
+    <p class="content">{{ token.circulatingSupply }}</p>
     <br />
-    <p>Max Supply</p>
-    <p>{{ token.maxSupply }}</p>
+
+    <p class="title">Max Supply</p>
+    <p class="content">{{ token.maxSupply }}</p>
     <br />
-    <p>Market Cap</p>
-    <p>{{ token.marketCap }}</p>
+
+    <p class="title">Market Cap</p>
+    <p class="content">{{ token.marketCap }}</p>
     <br />
-    <p>All-Time High</p>
-    <p>{{ token.allTimeHigh }}</p>
+
+    <p class="title">All-Time High</p>
+    <p class="content">{{ token.allTimeHigh }}</p>
   </div>
 </template>
 

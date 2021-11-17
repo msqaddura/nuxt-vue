@@ -1,10 +1,10 @@
 <template>
   <section>
-    <NuxtLink to="/">
-      <img :src="require('/assets/icon/back.png')" /> {{ token.name }}
+    <NuxtLink to="/" class="d-flex align-items-center">
+      <img :src="require('/assets/icon/back.png')" />
+      <h1>{{ token.name }}</h1>
     </NuxtLink>
 
-    <br />
     <br />
     <div class="jumper">
       <div class="media text-white">
@@ -13,10 +13,17 @@
           class="align-self-center mr-3 symbol-image"
         />
         <div class="media-body">
-          <h5 class="mt-0">{{ token.price }}</h5>
-          <p>
-            <span>{{ token.price }}</span>
-            <span class="text-uppercase">{{ token.symbol }}</span>
+          <h5 class="mb-0">{{ token.price }} <sup>EUR</sup></h5>
+          <p
+            class="mb-0"
+            :class="[
+              activeRange.change.isUptrend ? 'text-success' : 'text-danger',
+            ]"
+          >
+            <span>{{ activeRange.change.amount }}</span>
+            <span class="text-uppercase"
+              >({{ activeRange.change.percents }}%)</span
+            >
           </p>
         </div>
       </div>
@@ -25,7 +32,8 @@
       <button
         v-for="item of ranges"
         :key="item"
-        class="btn btn-primary mr-2"
+        class="btn text-light mr-2"
+        :class="{ 'btn-primary': range === item }"
         @click="changeRange(item)"
       >
         {{ item }}
@@ -49,8 +57,8 @@ export default {
         (item) => item[1]
       )
     },
-    rangeToDay() {
-      return ''
+    activeRange() {
+      return this.token.priceHistory[this.range]
     },
   },
   methods: {
@@ -67,5 +75,12 @@ $size: 44px;
 .symbol-image {
   width: $size;
   height: $size;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 21px;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
 }
 </style>

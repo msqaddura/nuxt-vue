@@ -77,7 +77,7 @@
           "change": {
             "amount": "1905",
             "percents": "5,4",
-            "isUptrend": true
+            "isUptrend": false
           },
           "priceData": [
             [1633575805550, 47726.580818224276],
@@ -1038,7 +1038,7 @@
           "change": {
             "amount": "1905",
             "percents": "5,4",
-            "isUptrend": true
+            "isUptrend": false
           },
           "priceData": [
             [1633575805550, 47726.580818224276],

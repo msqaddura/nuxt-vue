@@ -6,15 +6,15 @@
     <div v-else>
       <TokenGraph :token="token"></TokenGraph>
       <br />
-      <h5>Alerts</h5>
+      <h5 class="text-secondary mb-0">Alerts</h5>
       <br />
       <TokenAlerts :token="token"></TokenAlerts>
       <br />
-      <h5>Info</h5>
+      <h5 class="text-secondary mb-0">Info</h5>
       <br />
       <TokenInfo :token="token"></TokenInfo>
       <br />
-      <h5>About</h5>
+      <h5 class="text-secondary mb-0">About</h5>
       <br />
       <p class="jumper">
         {{ token.description }}

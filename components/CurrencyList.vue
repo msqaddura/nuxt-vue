@@ -21,8 +21,8 @@
                 class="align-self-center mr-3 symbol-image"
               />
               <div class="media-body">
-                <h5 class="mt-0">{{ item.name }}</h5>
-                <p>
+                <h5 class="mb-0">{{ item.name }}</h5>
+                <p class="text-light mb-0">
                   <span>{{ item.amount }}</span>
                   <span class="text-uppercase">{{ item.symbol }}</span>
                 </p>
